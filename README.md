@@ -6,24 +6,25 @@ The OSPF protocol is a link-state routing protocol, which means that the routers
 
 To enable OSPF on a Cisco router and advertise interfaces, the following tasks are required:
 
-Step 1 - Use the command router ospf process ID to start OSPF.
-Step 2 - Use the network command to enable the interfaces.
-Step 3 - Identify area assignments.
-Step 4 - (Optional) Assign the router ID.
+    Step 1 - Use the command router ospf process ID to start OSPF.
+    Step 2 - Use the network command to enable the interfaces.
+    Step 3 - Identify area assignments.
+    Step 4 - (Optional) Assign the router ID.
 
+There are basically two ways of configuring the OSPF protocol on a router but what is mostly recommended to use is the wildcard mask configuration.
 The way how to enable OSPF on a router are shown as follows:
 
 Configuration one (With Wildcard Mask)
 
-  R1(config)#router ospf 1
-  R1(config-router)#network 192.168.23.0 0.0.0.255 area 1 
+    R1(config)#router ospf 1
+    R1(config-router)#network 192.168.23.0 0.0.0.255 area 1 
 
-    -------OR--------
-    
+-------OR--------
+ 
 Configuration two (With Subnet Mask)
 
-  R1(config)#router ospf 1
-  R1(config-router)#network 192.168.23.0 255.255.255.0 area 1 
+    R1(config)#router ospf 1
+    R1(config-router)#network 192.168.23.0 255.255.255.0 area 1 
   
 
 Behind 192.168.23.0 you can see it says 0.0.0.255. This is not a subnet mask but a wildcard mask. 
