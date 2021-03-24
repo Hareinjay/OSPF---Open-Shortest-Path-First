@@ -17,16 +17,15 @@ The way how to enable OSPF on a router are shown as follows:
 Configuration one (With Wildcard Mask)
 
     R1(config)#router ospf 1
-    R1(config-router)#network 192.168.23.0 0.0.0.255 area 1 
-
+    R1(config-router)#network 192.168.23.0 255.255.255.0 area 1 
+    
 -------OR--------
  
 Configuration two (With Subnet Mask)
 
     R1(config)#router ospf 1
-    R1(config-router)#network 192.168.23.0 255.255.255.0 area 1 
-  
-
+    R1(config-router)#network 192.168.23.0 0.0.0.255 area 1 
+ 
 Behind 192.168.23.0 you can see it says 0.0.0.255. This is not a subnet mask but a wildcard mask. 
 
 ![two](https://user-images.githubusercontent.com/79013111/112277092-69f4a580-8ca7-11eb-9f8e-dbbd38245d07.png)
