@@ -1,0 +1,40 @@
+
+Router>enable
+Router#configure
+Router(config)#int gigabitEthernet 0/0/1
+Router(config-if)#no shut
+Router(config-if)#ip address 192.168.3.1 255.255.255.0
+Router(config-if)#exit
+
+Router(config)#int gigabitEthernet 0/0/0
+Router(config-if)#no shut
+Router(config-if)#ip address 192.168.4.1 255.255.255.0
+Router(config-if)#exit
+
+Router(config)#int serial 0/1/0
+Router(config-if)#no shut
+Router(config-if)#ip address 10.3.5.2 255.255.255.252
+Router(config-if)#exit
+Router(config)#
+
+Router(config)#do show ip int br
+Interface              IP-Address      OK? Method Status                Protocol 
+GigabitEthernet0/0/0   192.168.4.1     YES manual up                    up 
+GigabitEthernet0/0/1   192.168.3.1     YES manual up                    up 
+GigabitEthernet0/0/2   unassigned      YES unset  administratively down down 
+Serial0/1/0            10.3.5.2        YES manual up                    up 
+Serial0/1/1            unassigned      YES unset  administratively down down 
+Vlan1                  unassigned      YES unset  administratively down down
+
+
+Router(config)#router ospf 1
+Router(config-router)#network 192.168.1.0 255.255.255.0 area 1
+Router(config-router)#network 192.168.2.0 255.255.255.0 area 1
+Router(config-router)#network 10.3.5.0 255.255.255.252 area 1
+Router(config-router)#exit
+Router(config)#exit
+Router#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+Router#
