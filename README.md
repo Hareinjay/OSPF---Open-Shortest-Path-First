@@ -39,7 +39,7 @@ OSPF routers share route information only with adjacent neighbor routers. The fo
     Both routers must be on the same subnet and use the same subnet mask.
     Both routers must have the same hello and dead intervals configured.
     The hello interval identifies how frequently neighbor routers exchange hello packets.
-    The dead interval identifies the amount of time to allow without an expected hello packet. If a periodic hello packet has not been received within the dead interval, the                               router assumes that its neighbor has gone offline.     
+    The dead interval identifies the amount of time to allow without an expected hello packet. If a periodic hello packet has not been received within the dead interval, the router assumes that its neighbor has gone offline.     
     Both routers must use the same OSPF area.
     If authentication is required, both routers must pass the authentication requirements.
     The stub area flag (value) for each router must match. 
