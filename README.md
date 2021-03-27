@@ -32,3 +32,15 @@ Behind 192.168.23.0 you can see it says 0.0.0.255. This is not a subnet mask but
 
 A wildcard mask is a reverse subnet mask. When I say reverse subnet mask I mean that the binary 1s and 0s of the wildcard mask are flipped compared to the subnet mask. A subnet mask of 255.255.255.0 is the same as wildcard mask 0.0.0.255. 
 
+-----ALWAYS REMEMBER-------
+
+OSPF routers share route information only with adjacent neighbor routers. The following conditions must be met for two routers to become fully adjacent:
+
+    Both routers must be on the same subnet and use the same subnet mask.
+    Both routers must have the same hello and dead intervals configured.
+    The hello interval identifies how frequently neighbor routers exchange hello packets.
+    The dead interval identifies the amount of time to allow without an expected hello packet. If a periodic hello packet has not been received within the dead interval, the                               router assumes that its neighbor has gone offline.     
+    Both routers must use the same OSPF area.
+    If authentication is required, both routers must pass the authentication requirements.
+    The stub area flag (value) for each router must match. 
+
